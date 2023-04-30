@@ -160,8 +160,8 @@ from collections import OrderedDict
 
 5. Filtering on Array Fields
     - [find_by_language_all.ipynb](./notebooks%20week2/find_by_language_all.ipynb)
-    - [korean_and_english_only.ipynb](notebooks%20week2\korean_and_english_only.ipynb)
-    - [korean_first_language-in-array.ipynb](notebooks%20week2\korean_first_language-in-array.ipynb)
+    - [korean_and_english_only.ipynb](notebooks%20week2/korean_and_english_only.ipynb)
+    - [korean_first_language-in-array.ipynb](notebooks%20week2/korean_first_language-in-array.ipynb)
 
 6. Sort, Skip, and Limit
     - [db.py](./mflix/mflix%202/mflix/db.py)

@@ -3,6 +3,10 @@
 
 ## Key terms to remember
 
+[Official learning path](https://learn.mongodb.com/learning-paths/mongodb-python-developer-path)
+
+[Coursera learning path](https://www.coursera.org/learn/introduction-mongodb)
+
 ## Week 1 - Getting Started with MongoDB & Basic Data Analysis
 
 1. $group
@@ -258,8 +262,62 @@ from collections import OrderedDict
 
 ## Week 3 - Additional MongoDB Concepts and Basic Charting
 
-1. 
+1. Indexes
+    - Optimize different stages of our queries
+    - See how a query runs? : _8collection.index_information()*_
+    - Primary and Secondary indexes
+    - Nomenclature: Index Field_1/-1_Next Field_1/-1
+    - In above e.g. we are using 2 fields as index fields and 1/-1 represents if they are sorted asc or desc
+    - Fields can be root level or embedded fields using dot
+    - ***Index improves read and slows write***
+    - Max 64 indexes
+    - Some types:
+        - Single field indexes
+        - Compound
+        - Multikey indexes
+        - Text indexes (Only 1 per collection)
+            - Not exact match
+            - Uses text search
+        - Geospatial
+        - Hash
+    - [Indexes Documentation](https://www.mongodb.com/docs/v6.0/indexes/)
+    - [improve-query-performance.ipynb](./notebooks%20week3/improve-query-performance.ipynb)
+    - [indexes-on-movies.ipynb](./notebooks%20week3/indexes-on-movies.ipynb)
 
+2. Geospatial Queries
+    - [Geospatial Query Operators](https://www.mongodb.com/docs/manual/reference/operator/query-geospatial/)
+    - GeoJSON
+        - GeoJSON specifies coordinates as [<longitude>, <latitude>]. This is opposite to normal convention of (latitude, longitude)
+    - $geoWithin
+        - Selects geometries within a bounding GeoJSON
+        - radius is defined in radians
+    - $nearSphere
+        - Returns geospatial objects in proximity to a point on a sphere. 
+        - Requires a geospatial index. 
+        - $minDistance and $maxDistance are specified in meters
+    - [geospatial-queries.ipynb](./notebooks%20week3/geospatial-queries.ipynb)
+    - [finding-things-nearby.ipynb](./notebooks%20week3/finding-things-nearby.ipynb)
+    - E.g. document
+    ```json
+    {
+        '_id': ObjectId('59a47286cfa9a3a73e51e72c'),
+        'location': 
+            {
+                'address': {'city': 'Bloomington',
+                          'state': 'MN',
+                          'street1': '340 W Market',
+                          'zipcode': '55425'},
+                'geo': {
+                    'coordinates': [-93.24565, 44.85466], 
+                    'type': 'Point'}
+            },
+        'theaterId': 1000
+    }
+    ```
 
-
-
+3. Graphing with MongoDB
+    - [Graphing+with+MongoDB.ipynb](./notebooks%20week3/Graphing%2Bwith%2BMongoDB.ipynb)
+    - using matplotlib.pyplot
+        - Scatter plots
+        - 3D plots
+        - Box (whisker) plots
